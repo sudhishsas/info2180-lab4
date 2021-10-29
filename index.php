@@ -13,7 +13,7 @@
     <div class="conatiner">
     <h1>Avengers Character Search</h1>
     <div id="searchbox">
-      <form action="#" method="get">
+      <form action="superheroes.php" method="post">
         <div class="form-field">
           <label for="search">Search by Full Name or Alies<em></em></label>
           <input type="text" id="search" name="search" placeholder="e.g. Captain America or Steve Rogers">
@@ -24,8 +24,9 @@
     </div>
     </div>
     <div class = "lists">
-      
-      <?php include 'superheroes.php';?>
+      <h2>result</h2>
+      <hr>
+      <?php include 'superheroes.php'; ?>
     </div>
   </div>
   <footer>

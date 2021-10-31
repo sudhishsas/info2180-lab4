@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Avengers Character Serch</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js"></script>
+  </head>
+  <body>
+    
+    
+      <header>
+        <div class="container">
+          <h1>Avengers Character Search</h1>
+        </div>
+    </header>
+    <main>
+      <div class = "container">
+        <div class ="searchbox">
+          <form  id = "myform" action="superheroes.php" method="POST">
+            <div class="form-field">
+              <label for="search">Search by Full Name or Alies<em></em></label>
+              <input class= "input" type="text" id = "search" name="search" value="" placeholder="e.g. Captain America or Steve Rogers"> 
+              <input class= btn name="submit" type="submit" value="Search" >
+            </div>
+          </form> 
+      
+        </div>
+        <div clas ="list">
+          <h2>result</h2>
+          <hr>
+          <div id = "result"></div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class = "container">
+        <p class="text-muted">Copyright of Sudhish Sepaul 2021&copy; , Form &amp; Co.</p>
+      </div>
+    </footer>
+  </body>
+
+</html>

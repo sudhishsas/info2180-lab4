@@ -63,10 +63,54 @@ $superheroes = [
   ], 
 ];
 
+
 ?>
+
+<?php pre_r($_POST);
+    if(isset($_POST['submit'])){
+        
+        if($_POST['search'] != ""){
+            $_POST['search'] = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
+             if($_POST['search'] != "" ){
+                
+                    foreach($superheroes as $superhero){
+                        if($superhero['alias'] == "Scarlett Witch" && $_POST['search'] != "Scarlett Witch"){
+                           break;
+                        }elseif($_POST['search'] == $superhero['alias'] || $_POST['search'] == $superhero['name']){
+                                   $alias = $superhero['alias']; 
+                                   $name =  $superhero['name']; 
+                                   $bio = $superhero['biography']; 
+                                   print('<h3.'.$alias.'</h3></br>');  
+                                   print('<h4>'.$name.'<?h4></br>'); 
+                                   print('<p>'.$bio.'</p>'); 
+                        }
+                    }
+                }
+        }
+        }
+   
+?>
+
+    
+
+<?php
+        function pre_r($array)
+        {
+            echo '<pre>';
+            print_r($array);
+            echo '</pre>';
+        }
+?>
+
+
+
 
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+
+
+
+

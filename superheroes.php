@@ -66,50 +66,31 @@ $superheroes = [
 
 ?>
 
-<?php pre_r($_POST);
-    if(isset($_POST['submit'])){
-        
+<?php
+       
         if($_POST['search'] != ""){
-            $_POST['search'] = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
-             if($_POST['search'] != "" ){
+           $_POST['search'] = trim(filter_var($_POST['search'], FILTER_SANITIZE_STRING));
+        }
                 
                     foreach($superheroes as $superhero){
-                        if($superhero['alias'] == "Scarlett Witch" && $_POST['search'] != "Scarlett Witch"){
-                           break;
-                        }elseif($_POST['search'] == $superhero['alias'] || $_POST['search'] == $superhero['name']){
+                        if($_POST['search'] === $superhero['alias'] || $_POST['search'] === $superhero['name']){
                                    $alias = $superhero['alias']; 
                                    $name =  $superhero['name']; 
                                    $bio = $superhero['biography']; 
-                                   print('<h3.'.$alias.'</h3></br>');  
-                                   print('<h4>'.$name.'<?h4></br>'); 
-                                   print('<p>'.$bio.'</p>'); 
-                        }
+                                   echo '<h3>'.$superhero['alias'].'</h3>';  
+                                   echo '<h4> A.K.A'.$superhero['name'].'<?h4></br>'; 
+                                   echo '<p>'.$superhero['biography'].'</p>';
+                                   break;
+                        }elseif ($_POST['search'] === ""){
+                            echo "<li>".$superhero['alias']."</li>"; 
+                        }elseif($superhero['id'] === 10 && $_POST['search'] != $superhero['alias'] || $_POST['search'] === "") 
+                                echo '<span style= "color: red;"> SUPERHERO " '. $_POST['search'] . ' " NOT FOUND.</span>';
                     }
-                }
-        }
-        }
-   
-?>
 
-    
-
-<?php
-        function pre_r($array)
-        {
-            echo '<pre>';
-            print_r($array);
-            echo '</pre>';
-        }
 ?>
 
 
 
-
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
 
 
 
